@@ -7,7 +7,7 @@ opening any defaults specified, and keeping those opened/closed by users as they
 left them while browsing your site.
 
 This is my first jQuery plugin, and I don't claim to be a jQuery/JavaScript 
-master, so I'm sure there is a lot of room for improvment.  If you find any 
+master, so I'm sure there is a lot of room for improvement.  If you find any 
 errors or have suggested changes, please post a comment on the github 
 project: http://github.com/juven14/Collapsible
 ________________________________________________________________________________
@@ -106,8 +106,8 @@ Option details:
  * cssOpen - This is the class you want assigned when it is opened.
  * cookieName - This is the name of the cookie that will store which 
    collapsibles should be open.
- * cookieOptions - See the jquery.cookie plugin for more informaiton.
- * defaultOpen - This is comma seperated list of collapsible header ids.
+ * cookieOptions - See the jquery.cookie plugin for more information.
+ * defaultOpen - This is comma separated list of collapsible header ids.
  * speed - This is the animation speed for the slide up/down.
  * bind - This is the event that you want the collapsibles to function on. only 
    4 are supported: click, dblclick, mouseenter, and mouseover.
