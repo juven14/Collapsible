@@ -33,6 +33,7 @@
 		// iterate and reformat each matched element
 		obj.each(function() {
 			var $this = $(this);
+			$this.data('collapsible-opts', opts);
 			
 			//lets bind it to mouseenter
 			if (opts.bind == 'mouseenter') {
