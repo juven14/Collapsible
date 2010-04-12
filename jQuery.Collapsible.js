@@ -20,7 +20,7 @@
 
 	$.fn.collapsible.dispatcher = {
 		_create : function(obj, arg) {
-			createCollapsable(obj, arg);
+			createCollapsible(obj, arg);
 		},
 		toggle: function(obj) {
 			toggle(obj, loadOpts(obj));
@@ -39,7 +39,7 @@
 		},
 	};
 
-	function createCollapsable(obj, options) {
+	function createCollapsible(obj, options) {
 		// build main options before element iteration
 		var opts = $.extend({}, $.fn.collapsible.defaults, options);
 		// store any opened default values to set cookie later
