@@ -21,6 +21,9 @@
 	$.fn.collapsible.dispatcher = {
 		_create : function(obj, arg) {
 			createCollapsable(obj, arg);
+		},
+		toggle: function(obj, arg) {
+			toggle(obj, loadOpts(obj));
 		}
 	};
 
