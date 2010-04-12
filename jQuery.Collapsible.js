@@ -10,9 +10,19 @@
  * http://www.gnu.org/licenses/gpl.html
  */
 (function($) {
-	$.fn.collapsible = function(options) {
-		createCollapsable(this, options);
-	}
+	$.fn.collapsible = function(cmd, arg) {
+		if (typeof cmd == 'string') {
+			$.fn.collapsible.dispatcher[cmd](this, arg);
+		} else {
+			$.fn.collapsible.dispatcher['_create'](this, cmd);
+		}
+	};
+
+	$.fn.collapsible.dispatcher = {
+		_create : function(obj, arg) {
+			createCollapsable(obj, arg);
+		}
+	};
 
 	function createCollapsable(obj, options) {
 		// build main options before element iteration
