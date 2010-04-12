@@ -112,6 +112,24 @@ Option details:
  * bind - This is the event that you want the collapsibles to function on. only 
    4 are supported: click, dblclick, mouseenter, and mouseover.
 
+Methods:
+
+You can call following methods on collapsible elements:
+
+ * collapsed - returns 'true' if element is collapsed
+ * toggle - toggle collapsible state
+ * open - open a collapsible
+ * close - close a collapsible
+
+Call them using jquery-ui style:
+  $(selector).collapsible('method', [arg]);
+
+Examples:
+  if ( $('#nav-block').collapsible('collapsed') ) { ... }
+or
+  appendToLog('Error: service is down!');
+  $('#nav-logs').collapsible('open');
+
 ________________________________________________________________________________
 ================================================================================
 
