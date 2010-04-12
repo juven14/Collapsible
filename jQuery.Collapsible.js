@@ -12,19 +12,23 @@
 (function($) {
 	$.fn.collapsible = function(cmd, arg) {
 		if (typeof cmd == 'string') {
-			$.fn.collapsible.dispatcher[cmd](this, arg);
-		} else {
-			$.fn.collapsible.dispatcher['_create'](this, cmd);
+			return $.fn.collapsible.dispatcher[cmd](this, arg);
 		}
+
+		return $.fn.collapsible.dispatcher['_create'](this, cmd);
 	};
 
 	$.fn.collapsible.dispatcher = {
 		_create : function(obj, arg) {
 			createCollapsable(obj, arg);
 		},
-		toggle: function(obj, arg) {
+		toggle: function(obj) {
 			toggle(obj, loadOpts(obj));
-		}
+			return obj;
+		},
+		collapsed: function(obj) {
+			return collapsed(obj, loadOpts(obj));
+		},
 	};
 
 	function createCollapsable(obj, options) {
@@ -126,11 +130,16 @@
 	function saveOpts($this, opts) {
 		return $this.data('collapsible-opts', opts);
 	}
+	//Returns true if object is opened
+	function collapsed($this, opts)
+	{
+		return $this.hasClass(opts.cssClose);
+	}
 	//Toggle a collapsible on an event
 	function toggle($this, opts)
 	{
 		// open a closed item
-		if ($this.hasClass(opts.cssClose)) {
+		if (collapsed($this, opts)) {
 			$this.removeClass(opts.cssClose).addClass(opts.cssOpen);
 			$this.next().slideDown(opts.speed);
 			//do cookies if plugin available
