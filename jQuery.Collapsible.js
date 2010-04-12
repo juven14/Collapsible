@@ -11,13 +11,17 @@
  */
 (function($) {
 	$.fn.collapsible = function(options) {
+		createCollapsable(this, options);
+	}
+
+	function createCollapsable(obj, options) {
 		// build main options before element iteration
 		var opts = $.extend({}, $.fn.collapsible.defaults, options);
 		// store any opened default values to set cookie later
 		var opened = new Array();
 		
 		// iterate and reformat each matched element
-		this.each(function() {
+		obj.each(function() {
 			var $this = $(this);
 			
 			//lets bind it to mouseenter
@@ -98,7 +102,7 @@
 		} else {
 			setCookie('', opts);
 		}
-		return this;
+		return obj;
 	};
 	//Toggle a collapsible on an event
 	function toggle($this, opts)
