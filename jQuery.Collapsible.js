@@ -26,6 +26,14 @@
 			toggle(obj, loadOpts(obj));
 			return obj;
 		},
+		open: function(obj) {
+			open(obj, loadOpts(obj));
+			return obj;
+		},
+		close: function(obj) {
+			close(obj, loadOpts(obj));
+			return obj;
+		},
 		collapsed: function(obj) {
 			return collapsed(obj, loadOpts(obj));
 		},
@@ -135,32 +143,39 @@
 	{
 		return $this.hasClass(opts.cssClose);
 	}
+	// Hides a collapsible
+	function close($this, opts) {
+		//give the proper class to the heading
+		$this.addClass(opts.cssClose).removeClass(opts.cssOpen);
+		//still here, close an open item
+		$this.next().slideUp(opts.speed); //no animation as its a page load initalization
+		//return false; //just incase its a link, lets not let it fire off
+		//do cookies if plugin available
+		if (useCookies(opts)) {
+			// split the cookieOpen string by ","
+			id = $this.attr('id');
+			unsetCookieId(id, opts);
+		}
+	}
+	// Opens a collapsible
+	function open($this, opts) {
+		$this.removeClass(opts.cssClose).addClass(opts.cssOpen);
+		$this.next().slideDown(opts.speed);
+		//do cookies if plugin available
+		if (useCookies(opts)) {
+			// split the cookieOpen string by ","
+			id = $this.attr('id');
+			appendCookie(id, opts);
+		}
+	}
 	//Toggle a collapsible on an event
 	function toggle($this, opts)
 	{
 		// open a closed item
 		if (collapsed($this, opts)) {
-			$this.removeClass(opts.cssClose).addClass(opts.cssOpen);
-			$this.next().slideDown(opts.speed);
-			//do cookies if plugin available
-			if (useCookies(opts)) {
-				// split the cookieOpen string by ","
-				id = $this.attr('id');
-				appendCookie(id, opts);
-			}
-			//return false; //skipped this element
+			open($this, opts);
 		} else {
-			//give the proper class to the heading
-			$this.addClass(opts.cssClose).removeClass(opts.cssOpen);
-			//still here, close an open item
-			$this.next().slideUp(opts.speed); //no animation as its a page load initalization
-			//return false; //just incase its a link, lets not let it fire off
-			//do cookies if plugin available
-			if (useCookies(opts)) {
-				// split the cookieOpen string by ","
-				id = $this.attr('id');
-				unsetCookieId(id, opts);	
-			}
+			close($this, opts);
 		}
 		return false;
 	}
