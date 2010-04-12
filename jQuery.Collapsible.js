@@ -33,7 +33,7 @@
 		// iterate and reformat each matched element
 		obj.each(function() {
 			var $this = $(this);
-			$this.data('collapsible-opts', opts);
+			saveOpts($this, opts);
 			
 			//lets bind it to mouseenter
 			if (opts.bind == 'mouseenter') {
@@ -115,6 +115,14 @@
 		}
 		return obj;
 	};
+	// Load opts from object
+	function loadOpts($this) {
+		return $this.data('collapsible-opts');
+	}
+	// Save opts into object
+	function saveOpts($this, opts) {
+		return $this.data('collapsible-opts', opts);
+	}
 	//Toggle a collapsible on an event
 	function toggle($this, opts)
 	{
