@@ -1,13 +1,11 @@
 /**
- * Collapsible - jQuery Plugin
+ * Collapsible, jQuery Plugin
  * 
  * This plugin enables the management of 
  * collapsibles on the page with cookie support.
  * 
  * Copyright (c) 2010 John Snyder (snyderplace.com)
- * Dual licensed under the MIT and GPL licenses:
- * http://www.opensource.org/licenses/mit-license.php
- * http://www.gnu.org/licenses/gpl.html
+ * @license http://www.snyderplace.com/collapsible/license.txt New BSD
  */
 (function($) {
 	$.fn.collapsible = function(cmd, arg) {
