@@ -96,7 +96,13 @@ The plugin default options are as follows:
     },
     defaultOpen: '',
     speed: 300,
-    bind: 'click'
+    bind: 'click',
+    animateOpen: function (elem, opts) { 
+        elem.next().slideUp(opts.speed);
+    },
+    animateClose: function (elem, opts) {
+        elem.next().slideDown(opts.speed);
+    }
 }
 ---end JavaScript code----------------------------------------------------------
 
@@ -111,6 +117,10 @@ Option details:
  * speed - This is the animation speed for the slide up/down.
  * bind - This is the event that you want the collapsibles to function on. only 
    4 are supported: click, dblclick, mouseenter, and mouseover.
+ * animateOpen - This is a custom callback to alter the way that an element 
+   is opened.
+ * animateClose - This is a custom callback to alter the way that an element 
+   is closed.
 
 Methods:
 
