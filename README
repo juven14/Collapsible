@@ -6,10 +6,11 @@ This plugin enables site owners to control multiple collapsible panels by auto
 opening any defaults specified, and keeping those opened/closed by users as they 
 left them while browsing your site.
 
-This is my first jQuery plugin, and I don't claim to be a jQuery/JavaScript 
-master, so I'm sure there is a lot of room for improvement.  If you find any 
-errors or have suggested changes, please post a comment on the github 
-project: http://github.com/juven14/Collapsible
+If you find any errors or have suggested changes, please post a comment on the 
+github project: http://github.com/juven14/Collapsible
+
+Very Basic demos can be found here: 
+http://www.snyderplace.com/demos/collapsible.html
 ________________________________________________________________________________
 ================================================================================
 
