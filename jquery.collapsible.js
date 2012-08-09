@@ -9,7 +9,12 @@
  * @version 1.1
  */
 (function($) {
-	$.fn.collapsible = function(cmd, arg) {
+	$.fn.collapsible = function (cmd, arg) {
+		//firewalling
+		if (!this || this.length < 1) {
+			return this;
+		}
+
 		//address command requests
 		if (typeof cmd == 'string') {
 			return $.fn.collapsible.dispatcher[cmd](this, arg);
