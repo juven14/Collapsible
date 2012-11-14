@@ -398,7 +398,7 @@
 		},
 		animateClose: function (elem, opts) { //replace the standard slideDown with custom function
 			elem.next().slideDown(opts.speed);
-		}
+		},
 		loadOpen: function (elem) { //replace the standard open state with custom function
 			elem.next().show();
 		},
