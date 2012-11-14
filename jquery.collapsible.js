@@ -171,7 +171,7 @@
 		$this.addClass(opts.cssClose).removeClass(opts.cssOpen);
 		
 		//close the element
-		opts.animateOpen($this, opts);
+		opts.animateClose($this, opts);
 		
 		//do cookies if plugin available
 		if (useCookies(opts)) {
@@ -187,7 +187,7 @@
 		$this.removeClass(opts.cssClose).addClass(opts.cssOpen);
 		
 		//open the element
-		opts.animateClose($this, opts);
+		opts.animateOpen($this, opts);
 		
 		//do cookies if plugin available
 		if (useCookies(opts)) {
@@ -394,10 +394,10 @@
 		speed: 'slow', //speed of the slide effect
 		bind: 'click', //event to bind to, supports click, dblclick, mouseover and mouseenter
 		animateOpen: function (elem, opts) { //replace the standard slideUp with custom function
-			elem.next().slideUp(opts.speed);
+			elem.next().slideDown(opts.speed);
 		},
 		animateClose: function (elem, opts) { //replace the standard slideDown with custom function
-			elem.next().slideDown(opts.speed);
+			elem.next().slideUp(opts.speed);
 		}
 	};
 })(jQuery);
