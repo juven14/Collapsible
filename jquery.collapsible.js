@@ -108,10 +108,12 @@
 				//close it if not defaulted to open
 				if (dOpenIndex === false) {
 					$this.addClass(opts.cssClose);
-					$this.next().hide(); 
+					//$this.next().hide();
+                    opts.loadClose($this);
 				} else { //its a default open, open it
 					$this.addClass(opts.cssOpen);
-					$this.next().show();
+					//$this.next().show();
+                    opts.loadOpen($this);
 					opened.push(id);
 				}
 			} else { //can use cookies, use them now
@@ -120,20 +122,24 @@
 					cookieIndex = inCookie(id, opts);
 					if (cookieIndex === false) { 
 						$this.addClass(opts.cssClose);
-						$this.next().hide();
+						//$this.next().hide();
+                        opts.loadClose($this);
 					} else {
 						$this.addClass(opts.cssOpen);
-						$this.next().show();
+						//$this.next().show();
+                        opts.loadOpen($this);
 						opened.push(id);
 					}
 				} else { //a cookie hasn't been set open defaults, add them to opened array
 					dOpenIndex = inDefaultOpen(id, opts);
 					if (dOpenIndex === false) {
 						$this.addClass(opts.cssClose);
-						$this.next().hide();
+						//$this.next().hide();
+                        opts.loadClose($this);
 					} else {
 						$this.addClass(opts.cssOpen);
-						$this.next().show();
+                        opts.loadOpen($this);
+						//$this.next().show();
 						opened.push(id);
 					}
 				}
@@ -398,6 +404,13 @@
 		},
 		animateClose: function (elem, opts) { //replace the standard slideDown with custom function
 			elem.next().stop().slideDown(opts.speed);
-		}
+		},
+        loadOpen: function (elem) { //replace the standard open state with custom function
+            elem.next().show();
+        },
+        loadClose: function (elem, opts) { //replace the close state with custom function
+            elem.next().hide();
+        }
+
 	};
 })(jQuery);
