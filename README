@@ -11,6 +11,9 @@ github project: http://github.com/juven14/Collapsible
 
 Very Basic demos can be found here: 
 http://www.snyderplace.com/demos/collapsible.html
+
+To enable cookie support you'll need the Cookie plugin here:
+https://github.com/carhartl/jquery-cookie
 ________________________________________________________________________________
 ================================================================================
 
@@ -19,13 +22,13 @@ Adding a collapsible panel to your html:
 ================================================================================
 
 You have to create your own html for the collapsible. You need a header element 
-(here as h3, can be div or etc) that gets the "collapsible" class assigned and a 
+(div or etc) that gets the "collapsible" class assigned and a
 body element. However, the slide effect will be choppy if you have margins and 
 padding for the container, so here we just use a div. Here I've used 
 "collapsible" but you can choose any other selector. Here is an example:
 
 ---HTML code--------------------------------------------------------------------
-<h3 class="collapsible" id="nav-section1">Navigation Section<span></span><h3>
+<div class="collapsible" id="nav-section1">Navigation Section<span></span></div>
 <div>
     <ul>
     <li><a href="#">Navigation Item</a></li>
@@ -36,7 +39,7 @@ padding for the container, so here we just use a div. Here I've used
     <li><a href="#">Navigation Item</a></li>
   </ul>
 </div>
-<h3 class="collapsible" id="nav-section2">Navigation Section<span></span><h3>
+<div class="collapsible" id="nav-section2">Navigation Section<span></span></div>
 <div>
     <ul>
     <li><a href="#">Navigation Item</a></li>
@@ -47,7 +50,7 @@ padding for the container, so here we just use a div. Here I've used
     <li><a href="#">Navigation Item</a></li>
   </ul>
 </div>
-<h3 class="collapsible" id="nav-section3">Navigation Section<span></span><h3>
+<div class="collapsible" id="nav-section3">Navigation Section<span></span></div>
 <div>
     <ul>
     <li><a href="#">Navigation Item</a></li>
@@ -103,6 +106,12 @@ The plugin default options are as follows:
     },
     animateClose: function (elem, opts) {
         elem.next().slideDown(opts.speed);
+    },
+    loadOpen: function (elem, opts) {
+        elem.next().show();
+    },
+    loadClose: function (elem, opts) {
+        elem.next().hide();
     }
 }
 ---end JavaScript code----------------------------------------------------------
@@ -122,6 +131,8 @@ Option details:
    is opened.
  * animateClose - This is a custom callback to alter the way that an element 
    is closed.
+ * loadOpen = This is a custom callback to override the default open state
+ * loadClose = This is a custom callback to override the default close state
 
 Methods:
 
@@ -131,6 +142,8 @@ You can call following methods on collapsible elements:
  * toggle - toggle collapsible state
  * open - open a collapsible
  * close - close a collapsible
+ * openAll - open all closed collapsibles
+ * closeAll - close all open collapsibles
 
 Call them using jquery-ui style:
   $(selector).collapsible('method', [arg]);
@@ -156,11 +169,11 @@ header of the collapsible.  You can use this to swap out the images or style
 the different states of your collapsible.
 
 ---CSS code---------------------------------------------------------------------
-.collapsible h3.collapse-open {}
-.collapsible h3.collapse-close {}
+.collapsible div.collapse-open {}
+.collapsible div.collapse-close {}
 
-.collapsible h3.collapse-open span {}
-.collapsible h3.collapse-close span {}
+.collapsible div.collapse-open span {}
+.collapsible div.collapse-close span {}
 ---end CSS code-----------------------------------------------------------------
 
 ________________________________________________________________________________
