@@ -324,7 +324,7 @@
         }
         
         //get the cookie
-        var cookie = $.cookie(opts.cookieName);
+        var cookie = decodeURIComponent($.cookie(opts.cookieName));
 
         //turn it into an array
         var cookieArray = cookie.split(',');
@@ -358,7 +358,7 @@
         }
         
         //still here get the cookie
-        var cookie = $.cookie(opts.cookieName);
+        var cookie = decodeURIComponent($.cookie(opts.cookieName));
         
         //turn it into an array
         var cookieArray = cookie.split(',');
@@ -400,7 +400,7 @@
         }
 
         //get the cookie value
-        var cookie = $.cookie(opts.cookieName);
+        var cookie = decodeURIComponent($.cookie(opts.cookieName));
         
         //turn it into an array
         var cookieArray = cookie.split(',');
