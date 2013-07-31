@@ -476,10 +476,10 @@
         speed: 'slow', //speed of the slide effect
         bind: 'click', //event to bind to, supports click, dblclick, mouseover and mouseenter
         animateOpen: function (elem, opts) { //replace the standard slideUp with custom function
-            elem.next().stop().slideDown(opts.speed);
+            elem.next().stop(true, true).slideDown(opts.speed);
         },
         animateClose: function (elem, opts) { //replace the standard slideDown with custom function
-            elem.next().stop().slideUp(opts.speed);
+            elem.next().stop(true, true).slideUp(opts.speed);
         },
         loadOpen: function (elem, opts) { //replace the default open state with custom function
             elem.next().show();
