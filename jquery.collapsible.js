@@ -6,7 +6,7 @@
  * 
  * Copyright (c) 2010 John Snyder (snyderplace.com)
  * @license http://www.snyderplace.com/collapsible/license.txt New BSD
- * @version 1.2
+ * @version 1.2.1
  */
 (function($) {
     $.fn.collapsible = function (cmd, arg) {
