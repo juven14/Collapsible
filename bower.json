@@ -1,0 +1,16 @@
+{
+  "name": "collapsible",
+  "version": "1.2.1",
+  "homepage": "https://github.com/juven14/Collapsible",
+  "description": "This plugin enables site owners to control multiple collapsible panels by auto opening any defaults specified, and keeping those opened/closed by users as they left them while browsing your site.",
+  "main": "jquery.collapsible.js",
+  "keywords": [
+    "collapse",
+    "panel",
+    "collapsible"
+  ],
+  "authors": [
+    "John Snyder <juven14>"
+  ],
+  "license": "MIT"
+}
